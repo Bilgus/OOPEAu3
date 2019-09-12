@@ -1,4 +1,14 @@
 #AutoIt3Wrapper_Run_AU3Check=n
+
+#cs
+	Duplicate functions are handled through the use of decorated methods
+	you can change the decoration like so....
+	Global $__OOPE_ClassDecoratorPattern = '_Cls__%CLASSNAME%__'
+	Global $__OOPE_MethodDecorator = 'Mtd__'
+	^Above are the default decorators^
+	;NOTE: They must be changed prior to the OOPE Include
+#ce
+
 #include '../OOPE/OOPE.au3'
 
 #classdef <Test> $oTest, <Second> $oSecond
