@@ -6,8 +6,9 @@
 $oTest.SetValue(2)
 MsgBox(0, 0, $oTest.GetValue)
 
-$oSecond.SetBase(2)
+$oSecond.SetValue(2)
 MsgBox(0, 0, $oSecond.GetSquare)
+MsgBox(0, 0, $oSecond.GetValue)
 
 #Region Class Test
 	Local $iValue
@@ -24,6 +25,11 @@ MsgBox(0, 0, $oSecond.GetSquare)
 #Region Class Second
 	Local $iValue
 
+	;Uh oh we have a duplicate function add '#' to the Func & EndFunc So Autoit Ignores it
+	#Func SetValue($iNewValue)
+		$This.iValue = $iNewValue * 100
+	#EndFunc
+
 	Func SetBase($iNewValue)
 		$This.iValue = $iNewValue
 	EndFunc
@@ -31,4 +37,8 @@ MsgBox(0, 0, $oSecond.GetSquare)
 	Func GetSquare()
 		Return $This.iValue ^ 2
 	EndFunc
+
+	#Func GetValue()
+		Return $This.iValue
+	#EndFunc
 #EndRegion
