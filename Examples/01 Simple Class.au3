@@ -5,10 +5,11 @@
 #classdef <Test> $oTest
 
 $oTest.SetValue(42)
-MsgBox(0, 0, "The answer to everything is " & $oTest.GetValue & ".")
+$oTest.SetTitle("OOPE Test")
+MsgBox(0, $oTest.GetTitle, "The answer to everything is " & $oTest.GetValue & ".")
 
 #Region Class Test
-	Local $iValue
+	Local $iValue, $sTitle
 
 	Func SetValue($iNewValue)
 		$This.iValue = $iNewValue
@@ -16,5 +17,14 @@ MsgBox(0, 0, "The answer to everything is " & $oTest.GetValue & ".")
 
 	Func GetValue()
 		Return $This.iValue
+	EndFunc
+
+
+	Func SetTitle($sNewString)
+		$This.sTitle = $sNewString
+	EndFunc
+
+	Func GetTitle()
+		Return $This.sTitle
 	EndFunc
 #EndRegion

@@ -3,16 +3,18 @@
 
 #classdef <Test> $oTest
 
-MsgBox(0, 0, "Default value: " & $oTest.GetValue)
+MsgBox(0, $oTest.GetTitle, "Default value: " & $oTest.GetValue)
 $oTest.SetValue(42)
-MsgBox(0, 0, "New value: " & $oTest.GetValue)
+$oTest.SetTitle("OOPE Test")
+MsgBox(0, $oTest.GetTitle, "New value: " & $oTest.GetValue)
 
 #Region Class Test
-	Local $iValue
+	Local $iValue, $sTitle
 
 	; Set a default value when instantiated
 	Func _Test()
 		$This.iValue = 2
+		$This.sTitle = "OOPE Default Title"
 	EndFunc
 
 	Func __Test()
@@ -25,5 +27,13 @@ MsgBox(0, 0, "New value: " & $oTest.GetValue)
 
 	Func GetValue()
 		Return $This.iValue
+	EndFunc
+
+	Func SetTitle($sNewString)
+		$This.sTitle = $sNewString
+	EndFunc
+
+	Func GetTitle()
+		Return $This.sTitle
 	EndFunc
 #EndRegion
